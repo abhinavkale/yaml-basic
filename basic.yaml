@@ -1,0 +1,39 @@
+# Comment in yaml
+
+child: # one object and then compulsory indentation
+  name: "XYZ name"
+  age: "20"
+  height: 172
+  weight: &weight 70
+  birth_date: 2000-01-01 12:20:21
+  has_car: null
+  hobbies: # way to write/define array/list in yaml
+    - playing cricket
+    - swimming
+    - reading books
+  friends: ["ABC", "PQR", "UVW"] # another way to write array
+  friends_details:
+    - name: "ABC" # way to write object in yaml
+      age: 19
+      has_car: null
+    - name: "PQR"
+      age: 23
+      has_car: "Swift Desire"
+    - { name: "UVW", age: 20, has_car: null } # another way to write object
+  short_desc: > # combined all into one string
+    Hello my name 
+    is XYZ
+  long desc: | # long description to writes
+    Hello my name
+      is XYZ from
+    EFG college
+  change_weight: *weight
+  # like a reference
+  adv: &adv
+    key: val
+
+  another_adv:
+    this_key: this_val
+
+    # all values of adv are copied
+    <<: *adv
